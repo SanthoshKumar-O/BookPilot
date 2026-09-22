@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookPilot — AI Technical Book Learning Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <div class="logo-icon">🚀</div>
+      <span class="brand-title">BookPilot</span>
+      <span class="badge badge-beta">v1.0 AI Engine</span>
+    </div>
+
+    <div class="nav-controls">
+      <select id="resourceSelect" class="select-dropdown">
+        <option value="res_1">Designing Data-Intensive Applications (PDF)</option>
+        <option value="res_2">Deep Learning & Optimization (EPUB)</option>
+        <option value="res_3">Rust Systems Programming (URL)</option>
+      </select>
+
+      <div class="reading-mode-toggle">
+        <button class="mode-btn active" data-mode="tutor" title="AI actively enhances reading with callouts & assistance">Tutor Mode</button>
+        <button class="mode-btn" data-mode="plain" title="Clean, distraction-free reading">Plain Mode</button>
+        <button class="mode-btn" data-mode="express" title="Concept compression & key section highlights">Express Mode</button>
+      </div>
+
+      <button id="btnOpenQuiz" class="btn btn-secondary">⚡ Quiz Center</button>
+      <button id="btnOpenCode" class="btn btn-secondary">💻 Code Lab</button>
+      <button id="btnOpenPlan" class="btn btn-secondary">📅 Study Plan</button>
+      <button id="btnOpenStats" class="btn btn-accent">📊 Stats</button>
+    </div>
+  </header>
+
+  <!-- Main Dual-Pane Application Layout -->
+  <main class="app-layout">
+    <!-- LEFT PANE: Reader Interface -->
+    <section class="pane reader-pane">
+      <div class="reader-header">
+        <div class="reader-title-area">
+          <button id="btnToggleToc" class="btn-icon" title="Table of Contents">☰</button>
+          <h2 id="chapterTitle">Chapter 3: Gradient Descent & Optimization Rules</h2>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar-bg">
+            <div id="progressBar" class="progress-bar-fill" style="width: 45%;"></div>
+          </div>
+          <span id="progressText" class="progress-percent">45% (Page 14 / 32)</span>
+        </div>
+      </div>
+
+      <!-- TOC Drawer Sidebar -->
+      <aside id="tocDrawer" class="toc-drawer hidden">
+        <div class="toc-header">
+          <h3>Resource Outline</h3>
+          <button id="btnCloseToc" class="btn-icon">✕</button>
+        </div>
+        <ul id="tocList" class="toc-list">
+          <li class="toc-item toc-part">Part I: Foundations</li>
+          <li class="toc-item toc-chapter active">Chapter 1: Mathematical Principles</li>
+          <li class="toc-item toc-section">1.1 Vector Spaces & Matrices</li>
+          <li class="toc-item toc-section">1.2 Derivatives & Jacobians</li>
+          <li class="toc-item toc-chapter">Chapter 2: Loss Functions</li>
+          <li class="toc-item toc-chapter">Chapter 3: Gradient Descent & Optimization</li>
+        </ul>
+      </aside>
+
+      <!-- Reader Text Canvas -->
+      <div id="readerCanvas" class="reader-canvas">
+        <div class="page-meta">Page 14 — Section 3.2: Parameter Update Equations</div>
+        
+        <p class="reader-paragraph">
+          Optimization lies at the core of training deep statistical models. Given a loss function \(L(\theta)\), our primary goal is to find the parameter vector \(\theta^*\) that minimizes total prediction error over the dataset.
+        </p>
+
+        <!-- Invisible AI Callout Layer -->
+        <div class="ai-callout callout-important">
+          <div class="callout-header">
+            <span class="callout-icon">📌</span>
+            <span class="callout-tag">Important Concept</span>
+            <span class="callout-badge">Score: 9.5</span>
+          </div>
+          <div class="callout-body">
+            <strong>Gradient Descent</strong> is an iterative optimization algorithm used to find a local minimum of a differentiable function.
+            <div class="callout-simplify">
+              💡 <em>In simple terms:</em> Imagine standing on a foggy hill. To reach the bottom, you take small steps in the steepest downhill direction.
+            </div>
+          </div>
+        </div>
+
+        <p class="reader-paragraph">
+          In standard batch gradient descent, parameters are updated continuously by moving in the direction opposite to the gradient of the loss function with respect to the parameters:
+        </p>
+
+        <div class="ai-callout callout-formula">
+          <div class="callout-header">
+            <span class="callout-icon">🧮</span>
+            <span class="callout-tag">Formula</span>
+          </div>
+          <div class="callout-body math-block">
+            $$\theta_{t+1} = \theta_t - \eta \cdot \nabla_\theta L(\theta_t)$$
+          </div>
+          <div class="callout-footer">
+            Where \(\eta > 0\) represents the <strong>learning rate</strong> (step size).
+          </div>
+        </div>
+
+        <p class="reader-paragraph">
+          If the learning rate \(\eta\) is set too high, the algorithm may overshoot the minimum and diverge. Conversely, if \(\eta\) is set too small, convergence will be extremely slow.
+        </p>
+
+        <div class="ai-callout callout-code">
+          <div class="callout-header">
+            <span class="callout-icon">💻</span>
+            <span class="callout-tag">Python Snippet</span>
+          </div>
+          <pre><code>def gradient_descent_step(w, dw, lr=0.01):
+    # Parameter update in opposite direction of gradient
+    return w - (lr * dw)</code></pre>
+        </div>
+
+        <!-- End of Chapter Learning Loop Actions -->
+        <div class="chapter-actions-card">
+          <h4>Finished reading Section 3.2?</h4>
+          <p>Test your conceptual understanding or practice implementation code before continuing.</p>
+          <div class="action-buttons">
+            <button id="btnStartChapterQuiz" class="btn btn-primary">Take Chapter 3 Quiz</button>
+            <button id="btnStartChapterCode" class="btn btn-secondary">Practice Coding Exercise</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT PANE: AI Learning Companion Sidebar -->
+    <section class="pane companion-pane">
+      <div class="companion-header">
+        <div class="companion-title">
+          <span class="bot-avatar">🤖</span>
+          <div>
+            <h3>Learning Companion</h3>
+            <span id="companionContext" class="context-badge">Context: Chapter 3 (Page 14)</span>
+          </div>
+        </div>
+        <button id="btnClearChat" class="btn-icon" title="Clear Chat">🗑️</button>
+      </div>
+
+      <!-- Chat Messages Scroll Container -->
+      <div id="chatMessages" class="chat-messages">
+        <div class="msg msg-assistant">
+          <div class="msg-sender">BookPilot Assistant</div>
+          <div class="msg-content">
+            Hello! I am reading <strong>Chapter 3</strong> alongside you. 
+            Feel free to ask me to simplify complex formulas, explain code, or check prerequisites!
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Suggestions -->
+      <div class="quick-chips">
+        <button class="chip-btn" data-prompt="Explain gradient descent simply">💡 Explain simply</button>
+        <button class="chip-btn" data-prompt="Give me a real-world example of learning rate">🌍 Real example</button>
+        <button class="chip-btn" data-prompt="Why does learning rate overshoot?">❓ Why overshoot?</button>
+        <button class="chip-btn" data-prompt="What math prerequisites do I need?">📚 Prerequisites</button>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="chat-input-area">
+        <textarea id="chatInput" placeholder="Ask anything about Chapter 3 or selected text..." rows="2"></textarea>
+        <button id="btnSendChat" class="btn btn-primary">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL: Chapter Quiz -->
+  <div id="quizModal" class="modal-overlay hidden">
+    <div class="modal-content quiz-modal">
+      <div class="modal-header">
+        <h3 id="quizTitle">Chapter 3 Assessment Quiz</h3>
+        <button class="btnCloseModal btn-icon">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="quizQuestionContainer">
+          <div class="quiz-question-card">
+            <span class="q-number">Question 1 of 2</span>
+            <h4 class="q-text">What happens if the learning rate \(\eta\) is set too high during gradient descent?</h4>
+            <div class="quiz-options">
+              <label class="option-label"><input type="radio" name="q1" value="A"> A. The algorithm converges instantly to global minimum.</label>
+              <label class="option-label"><input type="radio" name="q1" value="B"> B. The algorithm may overshoot the minimum and diverge.</label>
+              <label class="option-label"><input type="radio" name="q1" value="C"> C. The learning rate automatically reduces to zero.</label>
+              <label class="option-label"><input type="radio" name="q1" value="D"> D. Memory usage increases exponentially.</label>
+            </div>
+          </div>
+        </div>
+        <div id="quizResult" class="quiz-result hidden"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnSubmitQuiz" class="btn btn-primary">Submit Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: LeetCode-style Coding Environment -->
+  <div id="codeModal" class="modal-overlay hidden">
+    <div class="modal-content code-modal">
+      <div class="modal-header">
+        <h3>💻 Code Lab — Interactive Exercise</h3>
+        <button class="btnCloseModal btn-icon">✕</button>
+      </div>
+      <div class="code-editor-layout">
+        <!-- Problem Specs -->
+        <div class="problem-desc">
+          <h4>Problem: Gradient Descent Step</h4>
+          <span class="badge badge-medium">Medium</span>
+          <p>Implement the parameter update function <code>gradient_descent_step(w, dw, lr)</code> which computes the updated weight parameter vector.</p>
+          <h5>Example:</h5>
+          <pre>Input: w = 10.0, dw = 2.0, lr = 0.1
+Output: 9.8</pre>
+        </div>
+
+        <!-- Code Workspace -->
+        <div class="code-workspace">
+          <textarea id="codeEditor" class="code-textarea">def gradient_descent_step(w: float, dw: float, lr: float = 0.01) -> float:
+    # Write your solution here
+    return w - (lr * dw)
+</textarea>
+          <div class="code-actions">
+            <button id="btnRunCode" class="btn btn-secondary">▶ Run Code</button>
+            <button id="btnSubmitCode" class="btn btn-primary">Submit Solution</button>
+          </div>
+          <div id="codeOutput" class="code-output-log">Execution output log will appear here...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Analytics Dashboard -->
+  <div id="statsModal" class="modal-overlay hidden">
+    <div class="modal-content stats-modal">
+      <div class="modal-header">
+        <h3>📊 Learning Analytics Dashboard</h3>
+        <button class="btnCloseModal btn-icon">✕</button>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Resources Active</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">12</div>
+          <div class="stat-label">Chapters Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4.2h</div>
+          <div class="stat-label">Reading Time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">88%</div>
+          <div class="stat-label">Quiz Accuracy</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">5 🔥</div>
+          <div class="stat-label">Day Streak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
