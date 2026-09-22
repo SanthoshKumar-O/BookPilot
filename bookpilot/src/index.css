@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #fafafa;
+    --foreground: #18181b;
+    --card: #ffffff;
+    --card-foreground: #18181b;
+    --popover: #ffffff;
+    --popover-foreground: #18181b;
+    --primary: #18181b;
+    --primary-foreground: #fafafa;
+    --secondary: #f4f4f5;
+    --secondary-foreground: #18181b;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --accent: #2563eb;
+    --accent-foreground: #ffffff;
+    --accent-subtle: #eff6ff;
+    --border: #e4e4e7;
+    --input: #e4e4e7;
+    --ring: #18181b;
+    --radius: 0.5rem;
+
+    --success: #16a34a;
+    --success-subtle: #f0fdf4;
+    --warning: #d97706;
+    --warning-subtle: #fffbeb;
+    --error: #dc2626;
+    --error-subtle: #fef2f2;
+
+    --reader-bg: #ffffff;
+    --reader-fg: #1c1917;
+    --reader-border: #e7e5e4;
+    --reader-sidebar: #fbfbfa;
+    --reader-muted: #78716c;
+    --reader-highlight-important: #fef08a;
+    --reader-highlight-definition: #bfdbfe;
+    --reader-highlight-formula: #fed7aa;
+    --reader-highlight-code: #e9d5ff;
+    --reader-highlight-review: #fecdd3;
+  }
+
+  .dark {
+    --background: #09090b;
+    --foreground: #f4f4f5;
+    --card: #121215;
+    --card-foreground: #f4f4f5;
+    --popover: #121215;
+    --popover-foreground: #f4f4f5;
+    --primary: #f4f4f5;
+    --primary-foreground: #09090b;
+    --secondary: #1c1c21;
+    --secondary-foreground: #f4f4f5;
+    --muted: #1c1c21;
+    --muted-foreground: #a1a1aa;
+    --accent: #3b82f6;
+    --accent-foreground: #ffffff;
+    --accent-subtle: #1e293b;
+    --border: #27272a;
+    --input: #27272a;
+    --ring: #d4d4d8;
+
+    --success: #22c55e;
+    --success-subtle: #052e16;
+    --warning: #f59e0b;
+    --warning-subtle: #451a03;
+    --error: #ef4444;
+    --error-subtle: #450a0a;
+
+    --reader-bg: #0d0d10;
+    --reader-fg: #e4e4e7;
+    --reader-border: #222228;
+    --reader-sidebar: #09090c;
+    --reader-muted: #8b8b95;
+    --reader-highlight-important: rgba(234, 179, 8, 0.25);
+    --reader-highlight-definition: rgba(59, 130, 246, 0.25);
+    --reader-highlight-formula: rgba(249, 115, 22, 0.25);
+    --reader-highlight-code: rgba(168, 85, 247, 0.25);
+    --reader-highlight-review: rgba(244, 63, 94, 0.25);
+  }
+
+  [data-theme="sepia"] {
+    --background: #f7f3e8;
+    --foreground: #2d261e;
+    --card: #fcf9f2;
+    --card-foreground: #2d261e;
+    --popover: #fcf9f2;
+    --popover-foreground: #2d261e;
+    --primary: #3d3228;
+    --primary-foreground: #f7f3e8;
+    --secondary: #eee7d7;
+    --secondary-foreground: #2d261e;
+    --muted: #eee7d7;
+    --muted-foreground: #7d7265;
+    --accent: #8c5b29;
+    --accent-foreground: #ffffff;
+    --accent-subtle: #f4ecdf;
+    --border: #dfd5c2;
+    --input: #dfd5c2;
+    --ring: #5c4b3a;
+
+    --reader-bg: #fdfaf3;
+    --reader-fg: #2c251e;
+    --reader-border: #e6decb;
+    --reader-sidebar: #f3ecdc;
+    --reader-muted: #73695c;
+    --reader-highlight-important: #fae4a8;
+    --reader-highlight-definition: #d8e5f2;
+    --reader-highlight-formula: #fad9be;
+    --reader-highlight-code: #e5daf3;
+    --reader-highlight-review: #f9d3d7;
+  }
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.font-reading {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Custom scrollbars for clean technical reader aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
